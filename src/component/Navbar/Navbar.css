@@ -1,0 +1,111 @@
+/* Header styling */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+
+  z-index: -1;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  margin-left: -40px;
+}
+
+/* Navbar links styling */
+.navbar {
+  display: flex; /* Default display for larger screens */
+
+  align-items: center;
+  gap: 2rem;
+  transition: none; /* No animation for larger screens */
+}
+
+.simple-shadow {
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #4787ff;
+}
+
+/* Menu icon styling */
+.icons {
+  display: none;
+  position: absolute;
+  right: 5%;
+  color: white;
+  cursor: pointer;
+}
+
+/* Media query for responsive behavior */
+@media (max-width: 768px) {
+
+  .header{
+    padding: 10px 60px;
+  }
+
+  .logo{
+   font-size:  20px;
+   
+
+  }
+  .icons {
+    display: inline-flex; /* Show menu icons on small screens */
+  }
+
+  .navbar {
+    display: flex; /* Reset to flex for small screens */
+    position: absolute;
+    top: 100%;
+
+    left: 0;
+    width: 100%;
+    height: 0; /* Collapsed by default */
+    flex-direction: column; /* Vertical layout */
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    overflow: hidden; /* Hide content when collapsed */
+    transition: height 0.3s ease; /* Smooth slide effect */
+  }
+
+  .navbar.open {
+    height: 17.7rem; /* Full height when expanded */
+  }
+
+  .navbar a {
+    display: block;
+    margin: 0.3rem 0;
+    text-align: center;
+  }
+}
